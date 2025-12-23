@@ -103,11 +103,13 @@ docker-compose up --build
 
 ### 4. Access the Application
 
+- ##### Open the frontend in browser to access the application
+
 - **Frontend**: http://localhost:8501
 - **API Docs**: http://localhost:8000/docs
 - **Health Check**: http://localhost:8000/health
 
-## Everything is running inside Docker — no need to manually set up virtual environments.
+#### Everything is running inside Docker — no need to manually set up virtual environments.
 ---
 
 
