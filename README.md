@@ -76,7 +76,7 @@ User Query → Ingest → Plan → Generate Code → Validate → Execute → Ex
 ```bash
 # Clone the repository
 git clone <your-repo-url>
-cd pushkal
+cd Data_Analysis_Agent
 
 # Create environment file
 cp env.example .env
@@ -91,11 +91,6 @@ Edit `.env` with your settings:
 OPENAI_API_KEY=sk-your-openai-key-here
 OPENAI_MODEL=gpt-4o-mini
 
-# Database (default works with Docker)
-DATABASE_URL=postgresql://postgres:postgres@postgres:5432/pushkal_db
-
-# Redis (default works with Docker)
-REDIS_URL=redis://redis:6379/0
 ```
 
 ### 3. Start Infrastructure & Applications
@@ -103,7 +98,10 @@ REDIS_URL=redis://redis:6379/0
 ```bash
 # Start PostgreSQL and Redis
 docker-compose up --build
+```
 
+
+```bash
 
 ### 4. Access the Application
 
@@ -113,6 +111,7 @@ docker-compose up --build
 
 ## Everything is running inside Docker — no need to manually set up virtual environments.
 ---
+```
 
 ## 📖 Usage Guide
 
