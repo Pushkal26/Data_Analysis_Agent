@@ -96,7 +96,7 @@ OPENAI_MODEL=gpt-4o-mini
 ### 3. Start Infrastructure & Applications
 
 ```bash
-# Start PostgreSQL and Redis
+# Start Backend, Frontend , PostgreSQL , Redis and db Migration
 docker-compose up --build
 ```
 
