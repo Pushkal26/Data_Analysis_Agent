@@ -1,0 +1,12 @@
+Order ID,Customer ID,Order Date,Region,Product,Units,Unit Price,Discount,Revenue,Delivery Date,Meta
+1001,CUST-01,15/11/2024,APAC,Widget-A,32,10.5,0.05,319.2,20/11/2024,"{""channel"":""online"", ""priority"":""high""}"
+1002,CUST-02,16/11/2024,EU,Widget-B,100,20.0,0.10,1800.0,25/11/2024,"{""channel"":""retail""}"
+1003,CUST-03,17/11/2024,NA,Widget-A,15,10.5,0.00,157.5,19/11/2024,"{""channel"":""online""}"
+1004,CUST-04,18/11/2024,APAC,Widget-C,25,50.0,0.15,1062.5,23/11/2024,"{""channel"":""partner""}"
+1005,CUST-05,19/11/2024,EU,Widget-A,60,10.5,0.08,579.6,24/11/2024,"{""channel"":""online""}"
+1006,CUST-06,20/11/2024,NA,Widget-B,45,20.0,0.12,792.0,26/11/2024,"{""channel"":""retail""}"
+1007,CUST-07,21/11/2024,APAC,Widget-B,80,20.0,0.05,1520.0,27/11/2024,"{""channel"":""online"", ""priority"":""high""}"
+1008,CUST-08,22/11/2024,EU,Widget-C,30,50.0,0.20,1200.0,28/11/2024,"{""channel"":""partner""}"
+1009,CUST-09,23/11/2024,NA,Widget-C,20,50.0,0.10,900.0,29/11/2024,"{""channel"":""online""}"
+1010,CUST-10,24/11/2024,APAC,Widget-A,50,10.5,0.00,525.0,30/11/2024,"{""channel"":""retail""}"
+

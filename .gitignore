@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.log
+.env
+.venv
+venv/
+
+# OS
+.DS_Store
+
+# Docker
+*.pid
+docker-data/
+postgres-data/
+
+# Uploads / runtime
+uploads/
+app/uploads/
+
+# Streamlit cache
+.streamlit/
+
+# IDE
+.vscode/
+.idea/

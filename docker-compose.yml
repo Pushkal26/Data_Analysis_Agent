@@ -1,0 +1,88 @@
+version: '3.8'
+
+services:
+  # --------------------
+  # PostgreSQL Database
+  # --------------------
+  postgres:
+    image: postgres:16-alpine
+    container_name: pushkal_postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: pushkal_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # --------------------
+  # Redis (Caching & Queue)
+  # --------------------
+  redis:
+    image: redis:7-alpine
+    container_name: pushkal_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # --------------------
+  # Redis Commander (GUI)
+  # --------------------
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    container_name: pushkal_redis_commander
+    environment:
+      REDIS_HOSTS: local:redis:6379
+    ports:
+      - "8081:8081"
+    depends_on:
+      - redis
+
+  # --------------------
+  # Backend (FastAPI)
+  # --------------------
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: pushkal_backend
+    env_file:
+      - ./.env  # or ./backend/.env if it's inside backend folder
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+      - redis
+    restart: unless-stopped
+    volumes:
+      - ./backend:/app/backend
+      - ./pipeline:/app/pipeline
+  # --------------------
+  # Frontend (Streamlit)
+  # --------------------
+  frontend:
+    build:
+      context: ./frontend
+    container_name: pushkal_frontend
+    env_file:
+      - ./.env
+    ports:
+      - "8501:8501"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
+  redis_data:

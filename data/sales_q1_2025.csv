@@ -1,0 +1,11 @@
+Quarter,Region,Product,Total_Units,Avg_Unit_Price,Avg_Discount,Total_Revenue
+Q1-2025,APAC,Widget-A,120,10.5,0.10,1134.0
+Q1-2025,APAC,Widget-B,95,20.0,0.07,1767.0
+Q1-2025,APAC,Widget-C,85,50.0,0.12,3740.0
+Q1-2025,EU,Widget-A,78,10.5,0.06,769.86
+Q1-2025,EU,Widget-B,300,20.0,0.08,5520.0
+Q1-2025,EU,Widget-C,42,50.0,0.14,1806.0
+Q1-2025,NA,Widget-A,55,10.5,0.04,554.4
+Q1-2025,NA,Widget-B,120,20.0,0.09,2184.0
+Q1-2025,NA,Widget-C,80,50.0,0.15,3400.0
+
