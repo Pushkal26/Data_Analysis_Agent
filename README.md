@@ -148,54 +148,6 @@ Navigate to **📊 Analysis** to:
 
 ---
 
-## 🔧 Configuration Options
-
-### LLM Providers
-
-The application supports multiple LLM providers. Configure in `.env`:
-
-#### OpenAI (Recommended)
-```bash
-LLM_PROVIDER=openai
-OPENAI_API_KEY=sk-your-key
-OPENAI_MODEL=gpt-4o-mini  # or gpt-4o, gpt-4-turbo
-```
-
-#### Anthropic Claude
-```bash
-LLM_PROVIDER=anthropic
-ANTHROPIC_API_KEY=sk-ant-your-key
-ANTHROPIC_MODEL=claude-3-5-sonnet-20241022
-```
-
-#### Ollama (Local)
-```bash
-LLM_PROVIDER=ollama
-OLLAMA_BASE_URL=http://localhost:11434
-OLLAMA_MODEL=llama3.2
-```
-
-### Rate Limiting
-
-Configure in `backend/app/main.py`:
-```python
-app.add_middleware(
-    RateLimitMiddleware,
-    requests_per_minute=60,
-    requests_per_hour=1000,
-)
-```
-
-### Cache TTL
-
-Configure in `backend/app/core/cache.py`:
-```python
-FILE_METADATA_TTL = 7200      # 2 hours
-ANALYSIS_RESULT_TTL = 1800    # 30 minutes
-SESSION_TTL = 86400           # 24 hours
-```
-
----
 
 ## 📁 Project Structure
 
@@ -327,83 +279,6 @@ pytest tests/ -v
 
 ---
 
-## 🚀 Production Deployment
-
-### Using Docker Compose (Full Stack)
-
-```bash
-# Build and start all services
-docker-compose -f docker-compose.prod.yml up -d
-
-# View logs
-docker-compose logs -f
-```
-
-### Using Gunicorn (Backend)
-
-```bash
-gunicorn app.main:app -w 4 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:8000
-```
-
-### Start Celery Workers
-
-```bash
-# Start worker
-celery -A app.core.celery_app worker --loglevel=info -Q analysis,cleanup
-
-# Start beat scheduler (for periodic tasks)
-celery -A app.core.celery_app beat --loglevel=info
-```
-
-### Environment Variables for Production
-
-```bash
-# Security
-SECRET_KEY=your-production-secret-key
-
-# Database
-DATABASE_URL=postgresql://user:pass@db-host:5432/pushkal_db
-
-# Redis
-REDIS_URL=redis://redis-host:6379/0
-
-# Logging
-LOG_LEVEL=INFO
-```
-
----
-
-## 🛠️ Development
-
-### Adding New LangGraph Nodes
-
-1. Create node function in `pipeline/nodes/`
-2. Update state in `pipeline/state.py` if needed
-3. Register node in `pipeline/graph.py`
-
-### Database Migrations
-
-```bash
-cd backend
-
-# Create new migration
-alembic revision --autogenerate -m "Description"
-
-# Apply migrations
-alembic upgrade head
-
-# Rollback
-alembic downgrade -1
-```
-
-### Adding New API Endpoints
-
-1. Create router in `backend/app/api/`
-2. Add schemas in `backend/app/schemas/`
-3. Register router in `backend/app/main.py`
-
----
-
 ## 🐛 Troubleshooting
 
 ### Common Issues
@@ -477,4 +352,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Built with ❤️ for conversational data analytics**
+**Built by Pushkal for conversational data analytics**
