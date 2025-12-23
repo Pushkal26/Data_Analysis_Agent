@@ -101,8 +101,6 @@ docker-compose up --build
 ```
 
 
-```bash
-
 ### 4. Access the Application
 
 - **Frontend**: http://localhost:8501
@@ -111,7 +109,7 @@ docker-compose up --build
 
 ## Everything is running inside Docker — no need to manually set up virtual environments.
 ---
-```
+
 
 ## 📖 Usage Guide
 
