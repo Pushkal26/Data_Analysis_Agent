@@ -44,11 +44,11 @@ A production-grade conversational analytics platform that lets you upload spread
                         └────────┬────────┘
                                  │
               ┌──────────────────┼──────────────────┐
-              ▼                  ▼                  ▼
-     ┌─────────────┐    ┌─────────────┐    ┌─────────────┐
-     │   OpenAI    │    │    Redis    │    │   Celery    │
-     │   GPT-4     │    │    Cache    │    │   Workers   │
-     └─────────────┘    └─────────────┘    └─────────────┘
+              ▼                                     ▼                  
+     ┌─────────────┐                       ┌─────────────┐    
+     │   OpenAI    │                       │    Redis    │    
+     │   GPT-4     │                       │    Cache    │   
+     └─────────────┘                       └─────────────┘    
 ```
 
 ### LangGraph Pipeline Flow
