@@ -70,6 +70,7 @@ def delete_file_from_backend(file_id: str) -> dict:
     try:
         response = httpx.delete(
             f"{BACKEND_URL}/api/v1/files/{file_id}",
+            params={"session_id": st.session_state.session_id},
             timeout=30.0
         )
         if response.status_code == 200:

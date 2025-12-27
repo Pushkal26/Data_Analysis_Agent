@@ -69,6 +69,7 @@ services:
     volumes:
       - ./backend:/app/backend
       - ./pipeline:/app/pipeline
+      - ./backend/uploads:/app/uploads
   # --------------------
   # Frontend (Streamlit)
   # --------------------
